@@ -1,0 +1,57 @@
+@import "styles/utils/_colors";
+
+
+@mixin border-radius($value) {
+    -moz-border-radius: $value;
+    -webkit-border-radius: $value;
+    -ms-border-radius: $value;
+    -o-border-radius: $value;
+    -khtml-border-radius: $value;
+    border-radius: $value;
+}
+html{
+    font: normal 100.01%/1.5 Frutiger,Arial,Helvetica,sans-serif;
+}
+body {
+    background: $white;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: Frutiger,Arial,Helvetica,sans-serif;
+}
+
+.container{
+    max-width: 800px;
+    margin: 20px auto 30px;
+    h1{
+        font: 1.875em/1.1 Frutiger,Arial,Helvetica,sans-serif;
+    }
+}
+button{
+    &:visited,&:active,&:focus{
+        border: none;
+        outline: none;
+    }
+}
+input{
+    border: 1px solid $dark_gray;
+    min-height: 32px;
+    &:visited,&:focus{
+        outline: none;
+    }
+}
+.btn-primary{
+    background: $red;
+    border: none;
+    color: $white;
+    padding: 10px;
+    @include border-radius(1px);
+    font-size: 13px;
+    cursor: pointer;
+}
+.header-box{img{width: 100%;}}
+
+@import "styles/components/_loader";
+@import "styles/components/_table-listing";
+@import "styles/components/_search_input";
+@import "styles/utils/_mobile";

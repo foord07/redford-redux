@@ -1,0 +1,53 @@
+.tbl-box{
+    margin: 20px 0;
+    h1.error{
+        font: 1.875em/1.1 Frutiger,Arial,Helvetica,sans-serif;
+        text-align: center;
+        margin-top: 20%;
+        color: $red;
+        padding: 40px;
+    }
+    .tbl-list{
+        border: 1px solid $light_gray;
+        border-collapse: collapse;
+        box-sizing: border-box;
+        border-spacing: 2px;
+        border-color: grey;
+        width: 100%;
+        color: $black;
+        caption{
+            font-size: 20px;
+            text-align: left;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+        thead{
+            th{
+                font-size: 13px;
+                text-transform: capitalize;
+                border: 1px solid $light_gray;
+                vertical-align: bottom;
+                border-bottom: 2px solid $light_gray;
+                padding: .7rem;
+            }
+        }
+        tbody{
+            tr:nth-of-type(odd) {
+                background-color: rgba(0,0,0,.05);
+            }
+            tr{
+                td{
+                    font-size: 12px;
+                    padding: .5rem;
+                    vertical-align: top;
+                    border: 1px solid $light_gray;
+                }
+                &:hover{
+                    td{
+                        background: $light_white;
+                    }
+                }
+            }
+        }
+    }
+}
