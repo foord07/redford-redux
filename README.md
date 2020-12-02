@@ -1,4 +1,5 @@
 # redford-redux
+API integration: https://aninditabasu.github.io/indica/html/vs.html
 
 To install:
 npm i
