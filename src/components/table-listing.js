@@ -1,7 +1,6 @@
 import React from 'react'
 import {Loader} from '../components';
 import {useSelector} from 'react-redux';
-import * as actions from '../actions';
 
 const TableListing = (tableDataProp) => {
     const isLoading = useSelector(state => state.loadingStore);
