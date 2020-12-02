@@ -183,12 +183,16 @@ describe("Loader component Testing", () => {
 });
 
 describe("Table Listing component Testing", () => {
+    let store: any;
+    beforeEach(() => {
+        store = mockStore({});
+    });
     test('should render correctly', () => {
-       const component = shallow(<TableListing tableDataProp={dummyData}/>);
+       const component = mount(<Provider store={store}><TableListing tableDataProp={dummyData}/></Provider>);
        expect(component.find(".tbl-box")).toHaveLength(1);
     });
     test('should render props correctly', () => {
-       const getByTestId = render(<TableListing tableDataProp={dummyData}/>);
+       const getByTestId = render(<Provider store={store}><TableListing tableDataProp={dummyData}/></Provider>);
        expect(getByTestId).toMatchSnapshot();
     });
 
@@ -197,7 +201,7 @@ describe("Table Listing component Testing", () => {
             status: 500
         });
         const errorData =[{"status":500,"statusText": "Error"}];
-        const {getByText} = render(<TableListing tableDataProp={errorData}/>);
+        const {getByText} = render(<Provider store={store}><TableListing tableDataProp={errorData}/></Provider>);
         const errorMessage = await waitFor(() => getByText(errorData[0].status));
         expect(errorMessage).toBeInTheDocument();
     });
@@ -206,7 +210,7 @@ describe("Table Listing component Testing", () => {
             status: 200,
             body: dummyData
         });
-        const {getByText} = render(<TableListing tableDataProp={dummyData}/>);
+        const {getByText} = render(<Provider store={store}><TableListing tableDataProp={dummyData}/></Provider>);
 
         const data = await waitFor(() => getByText(dummyData[0].word));
         expect(data).toBeInTheDocument();
@@ -242,7 +246,7 @@ describe('Search component Testing', () => {
             status: 200,
             body: dummyData
         });
-        const {getByText} = render(<TableListing tableDataProp={dummyData}/>);
+        const {getByText} = render(<Provider store={store}><TableListing tableDataProp={dummyData}/></Provider>);
         const data = await waitFor(() => getByText(dummyData[0].word));
         expect(data).toBeInTheDocument();
     });

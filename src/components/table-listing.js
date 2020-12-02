@@ -1,6 +1,10 @@
 import React from 'react'
+import {Loader} from '../components';
+import {useSelector} from 'react-redux';
+import * as actions from '../actions';
 
 const TableListing = (tableDataProp) => {
+    const isLoading = useSelector(state => state.loadingStore);
     const generateTD = (item) =>{
         const tdItems = [];
         for(const property in item) {
@@ -52,22 +56,28 @@ const TableListing = (tableDataProp) => {
                 <h1 data-testid="errorData" className="error">Sorry! <br/>{tableDataProp.tableDataProp.statusText}. <br/>Please try again later.</h1>
             :
             <React.Fragment>
-                {
-                    isDataEmpty ?
-                    <p>No matching records found.</p>
-                    :
-                    <table className="tbl-list" data-testid="tblListData">
-                    <caption>{count} List of all of the nouns in vedic literature, including the flora, fauna, geography, food, relationships, and objects</caption>
-                        <thead>
-                            <tr>
-                                {displayTblHeader}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {displayTblBody}
-                        </tbody>
-                      </table>
-                  }
+                {isLoading ? <Loader/> :
+                    <React.Fragment>
+                    {
+                        isDataEmpty ?
+                        <p>No matching records found.</p>
+                        :
+                        <React.Fragment>
+                            <table className="tbl-list" data-testid="tblListData">
+                            <caption>{count} List of all of the nouns in vedic literature, including the flora, fauna, geography, food, relationships, and objects</caption>
+                                <thead>
+                                    <tr>
+                                        {displayTblHeader}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {displayTblBody}
+                                </tbody>
+                              </table>
+                          </React.Fragment>
+                      }
+                    </React.Fragment>
+                }
             </React.Fragment>
         }
         </div>

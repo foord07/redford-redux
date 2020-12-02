@@ -16,12 +16,10 @@ const App = () => {
          <React.Fragment>
             <Header/>
              <div className="container">
-                {isLoading ? <Loader/> :
-                    <React.Fragment>
-                        <SearchInput/>
-                        <TableListing tableDataProp={dataList}/>
-                    </React.Fragment>
-                }
+             <React.Fragment>
+                 <SearchInput/>
+                 <TableListing tableDataProp={dataList}/>
+             </React.Fragment>
              </div>
          </React.Fragment>
      )
