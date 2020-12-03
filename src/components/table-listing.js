@@ -82,4 +82,4 @@ const TableListing = (tableDataProp) => {
         </div>
     );
 }
-export default TableListing
+export default React.memo(TableListing);

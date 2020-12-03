@@ -10,6 +10,7 @@ const SearchInput = (searchData) => {
         dispatch(actions.loaderInit(true));
         dispatch(actions.searchDataList(search));
     }
+    console.log("rendersearch")
     return (
         <div className="search-box">
             <input
@@ -24,4 +25,4 @@ const SearchInput = (searchData) => {
         </div>
     );
 }
-export default SearchInput;
+export default React.memo(SearchInput);
