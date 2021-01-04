@@ -152,7 +152,7 @@ describe('App component Testing', () => {
         store = mockStore({});
     });
 
-    it('should render correctly', () => {
+    test('should render correctly', () => {
         const component = shallow(
         <Provider store={store}>
             <App />
@@ -166,7 +166,7 @@ describe('Header component Testing', () => {
     beforeEach(() => {
         store = mockStore({});
     });
-    it('should render correctly', () => {
+    test('should render correctly', () => {
         const component = shallow(
             <Provider store={store}>
                 <Header />
@@ -197,7 +197,7 @@ describe("Table Listing component Testing", () => {
     });
 
     test('should render Service unavailable', async () => {
-        fetchMock.mock('https://sheetlabs.com/IND/vs1', {
+        fetchMock.mock('https://sheetlabs.com/ACME/getDomain1/', {
             status: 500
         });
         const errorData =[{"status":500,"statusText": "Error"}];
@@ -206,7 +206,7 @@ describe("Table Listing component Testing", () => {
         expect(errorMessage).toBeInTheDocument();
     });
     test('should render Fetch data successfully', async () => {
-        fetchMock.mock('https://sheetlabs.com/IND/vs', {
+        fetchMock.mock('https://sheetlabs.com/ACME/getDomain/', {
             status: 200,
             body: dummyData
         });
@@ -221,7 +221,7 @@ describe('Search component Testing', () => {
     beforeEach(() => {
         store = mockStore({});
     });
-    it('should render correctly', () => {
+    test('should render correctly', () => {
         const component = mount(
         <Provider store={store}>
             <SearchInput />
@@ -229,7 +229,7 @@ describe('Search component Testing', () => {
         );
         expect(component.find(SearchInput)).toHaveLength(1);
     });
-    it('Click of Search button', () => {
+    test('Click of Search button', () => {
           const handler = jest.fn(e => e.preventDefault())
           const {getByText} = render(
             <div className="search-box">
@@ -239,9 +239,9 @@ describe('Search component Testing', () => {
           fireEvent.click(getByText(/Search/i))
           expect(handler).toHaveBeenCalledTimes(1)
     })
-    it('Fetch data successfully rendering', async () => {
+    test('Fetch data successfully rendering', async () => {
         let search = 'al';
-        const url = "https://sheetlabs.com/IND/vs?word="+search+"*";
+        const url = "https://sheetlabs.com/ACME/getDomain?domain="+search+"*";
         fetchMock.mock(url, {
             status: 200,
             body: dummyData

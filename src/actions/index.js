@@ -2,7 +2,7 @@ import * as types from './action-types';
 
 export const getDataList = () => {
   return dispatch => {
-    return fetch('https://sheetlabs.com/IND/vs', {
+    return fetch('https://sheetlabs.com/ACME/getDomain/', {
         method: 'GET',
         headers: {
           "Content-Type": "application/json"
@@ -31,7 +31,7 @@ export const getDataList = () => {
 
 export const searchDataList = (data) => {
   return dispatch => {
-    const url = "https://sheetlabs.com/IND/vs?word="+data+"*";
+    const url = "https://sheetlabs.com/ACME/getDomain?domain="+data+"*";
     return fetch(url, {
         method: 'GET',
         headers: {

@@ -17,7 +17,7 @@ const TableListing = (tableDataProp) => {
             const tdItems = generateTD(item);
             return <tr  key={i}>{
                     tdItems.map((textItem,i)=>{
-                        if(i===0){
+                        if(i===3){
                             let link = "https://www.google.com/search?q=" + textItem;
                             return <td key={i}><a href={link} target="_blank" rel="noreferrer"> {textItem}</a></td>
                         }else{
