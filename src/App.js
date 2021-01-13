@@ -1,7 +1,7 @@
 import React from 'react';
 import {useSelector,useDispatch} from 'react-redux';
 import * as actions from './actions';
-import {TableListing,SearchInput,Header} from './components';
+import {TableListing,SearchInput} from './components';
 
 const App = () => {
     const dataList = useSelector(state => state.dataListStore.responseData);
@@ -12,13 +12,10 @@ const App = () => {
     }, [dispatch]);
 
      return (
-         <React.Fragment>
-            <Header/>
              <div className="container">
                  <SearchInput/>
                  <TableListing tableDataProp={dataList}/>
              </div>
-         </React.Fragment>
      )
 };
 export default React.memo(App);
